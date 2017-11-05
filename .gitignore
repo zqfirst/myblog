@@ -1,7 +1,7 @@
 vendor
 .idea
 composer.lock
-yii.*
+yii*
 
 **/web/index.php
 **/web/index_test.php
