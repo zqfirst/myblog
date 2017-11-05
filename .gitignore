@@ -1,0 +1,8 @@
+vendor
+.idea
+composer.lock
+yii.*
+
+**/web/index.php
+**/web/index_test.php
+**.Ds_Stroe
