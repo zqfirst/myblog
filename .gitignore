@@ -3,7 +3,8 @@ vendor
 composer.lock
 yii*
 
-**/web/index.php
+!environments/**index-test.php
+
 **/web/index_test.php
 **.Ds_Stroe
 
