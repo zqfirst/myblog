@@ -34,16 +34,32 @@ return [
             ],
         ],
         'errorHandler' => [
-            'errorAction' => 'site/error',
+            'errorAction' => 'error/error',
         ],
-        /*
-        'urlManager' => [
-            'enablePrettyUrl' => true,
-            'showScriptName' => false,
-            'rules' => [
-            ],
-        ],
-        */
+
+//        'urlManager' => [
+//            'enablePrettyUrl' => true,
+//            'showScriptName' => false,
+//            'suffix' =>'.html',
+//        ],
     ],
+    'modules' => [
+        'life' => [
+            'class' => 'frontend\modules\life\Module'
+        ],
+        'technology' => [
+            'class' => 'frontend\modules\technology\Module'
+        ],
+        'words' => [
+            'class' => 'frontend\modules\words\Module'
+        ],
+        'record' => [
+            'class' => 'frontend\modules\record\Module'
+        ],
+        'blog' => [
+	        'class' => 'frontend\modules\blog\Module'
+        ],
+    ],
+    'defaultRoute' => 'index/index',
     'params' => $params,
 ];

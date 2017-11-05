@@ -1,83 +1,45 @@
 <?php
-
-/* @var $this \yii\web\View */
-/* @var $content string */
-
-use yii\helpers\Html;
-use yii\bootstrap\Nav;
-use yii\bootstrap\NavBar;
-use yii\widgets\Breadcrumbs;
-use frontend\assets\AppAsset;
-use common\widgets\Alert;
-
-AppAsset::register($this);
+    use frontend\assets\AppAsset;
+    AppAsset::register($this);
+    $this->registerCssFile('/static/css/main.css');
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>">
-<head>
-    <meta charset="<?= Yii::$app->charset ?>">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <?= Html::csrfMetaTags() ?>
-    <title><?= Html::encode($this->title) ?></title>
-    <?php $this->head() ?>
-</head>
-<body>
-<?php $this->beginBody() ?>
-
-<div class="wrap">
-    <?php
-    NavBar::begin([
-        'brandLabel' => 'My Company',
-        'brandUrl' => Yii::$app->homeUrl,
-        'options' => [
-            'class' => 'navbar-inverse navbar-fixed-top',
-        ],
-    ]);
-    $menuItems = [
-        ['label' => 'Home', 'url' => ['/site/index']],
-        ['label' => 'About', 'url' => ['/site/about']],
-        ['label' => 'Contact', 'url' => ['/site/contact']],
-    ];
-    if (Yii::$app->user->isGuest) {
-        $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
-        $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
-    } else {
-        $menuItems[] = '<li>'
-            . Html::beginForm(['/site/logout'], 'post')
-            . Html::submitButton(
-                'Logout (' . Yii::$app->user->identity->username . ')',
-                ['class' => 'btn btn-link logout']
-            )
-            . Html::endForm()
-            . '</li>';
-    }
-    echo Nav::widget([
-        'options' => ['class' => 'navbar-nav navbar-right'],
-        'items' => $menuItems,
-    ]);
-    NavBar::end();
-    ?>
-
-    <div class="container">
-        <?= Breadcrumbs::widget([
-            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-        ]) ?>
-        <?= Alert::widget() ?>
-        <?= $content ?>
-    </div>
-</div>
-
-<footer class="footer">
-    <div class="container">
-        <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
-
-        <p class="pull-right"><?= Yii::powered() ?></p>
-    </div>
-</footer>
-
-<?php $this->endBody() ?>
-</body>
+    <head>
+        <meta charset="<?= Yii::$app->charset ?>">
+        <title><?=isset($this->title)?$this->title:''?></title>
+        <?php $this->head() ?>
+    </head>
+    <body>
+    <?php $this->beginBody() ?>
+    <?php if($this->context->hasTop):?>
+    <header>
+<!--        <div id="logo"><a href="/"></a></div>-->
+        <div id="logo"><a href="/"></a></div>
+        <nav class="topnav" id="topnav">
+            <a href="/"><span>首页</span><span class="en">Protal</span></a>
+            <a href="/blog/blog/index"><span>博客</span><span class="en">blog</span></a>
+            <a href="/life/life/say"><span>碎言碎语</span><span class="en">Doing</span></a>
+<!--            <a href="share.html"><span>模板分享</span><span class="en">Share</span></a>-->
+<!--            <a href="/technology/tech"><span>学无止境</span><span class="en">Learn</span></a>-->
+<!--            <a href="/words/words/words-list"><span>留言版</span><span class="en">Gustbook</span></a>-->
+            <a href="/life/about-me"><span>关于我</span><span class="en">About</span></a>
+        </nav>
+    </header>
+    <?php endif;?>
+    <?php if($this->context->hasNav):?>
+    <article>
+        <h1 class="t_nav"><span><?=$this->context->words?></span><a href="/" class="n1">网站首页</a><a href="javascript:;" class="n2"><?=$this->title?></a></h1>
+    </article>
+    <?php endif;?>
+    <?= $content ?>
+    <?php if($this->context->hasFoot):?>
+    <footer>
+        <p>Design by DanceSmile <a href="http://www.miitbeian.gov.cn/" target="_blank">蜀ICP备11002373号-1</a> <a href="/">网站统计</a></p>
+    </footer>
+    <?php endif;?>
+    <?php $this->endBody() ?>
+    </body>
 </html>
 <?php $this->endPage() ?>

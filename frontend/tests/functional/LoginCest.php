@@ -3,11 +3,11 @@
 namespace frontend\tests\functional;
 
 use frontend\tests\FunctionalTester;
-use common\fixtures\UserFixture;
+use common\fixtures\User as UserFixture;
 
 class LoginCest
 {
-    public function _before(FunctionalTester $I)
+    function _before(FunctionalTester $I)
     {
         $I->haveFixtures([
             'user' => [

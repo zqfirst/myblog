@@ -35,16 +35,25 @@ return [
             ],
         ],
         'errorHandler' => [
-            'errorAction' => 'site/error',
+            'errorAction' => 'error/error',
         ],
-        /*
+
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
             ],
         ],
-        */
+
+    ],
+    'defaultRoute' => 'system/index/index',
+    'modules' => [
+        'system' => [
+            'class' => 'backend\modules\system\Module'
+        ],
+        'blog' => [
+	        'class' => 'backend\modules\blog\Module'
+        ],
     ],
     'params' => $params,
 ];

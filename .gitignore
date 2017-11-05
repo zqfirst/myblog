@@ -6,3 +6,6 @@ yii.*
 **/web/index.php
 **/web/index_test.php
 **.Ds_Stroe
+
+#git版本库冲突文件
+**.orig

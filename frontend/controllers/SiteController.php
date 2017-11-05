@@ -16,8 +16,9 @@ use frontend\models\ContactForm;
 /**
  * Site controller
  */
-class SiteController extends Controller
+class SiteController extends BaseController
 {
+//    public $layout=false;
     /**
      * @inheritdoc
      */
