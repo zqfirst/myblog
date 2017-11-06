@@ -61,6 +61,15 @@ $this->registerJsFile( '/public/plugins/utf8-php/ueditor.all.js', [ 'position' =
                     </div>
                     <div class="row">
                         <div class="form-group col-sm-12">
+                            <label for="Icon_Class" class="control-label col-sm-1">文章简介</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="decription"
+                                       value="<?= $model ? $model->decription : '' ?>">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-sm-12">
                             <label class="control-label col-sm-1">文本内容</label>
                             <div class="col-sm-10">
                                 <!-- 加载编辑器的容器 -->
@@ -86,6 +95,21 @@ $this->registerJsFile( '/public/plugins/utf8-php/ueditor.all.js', [ 'position' =
                                            value="0" <?php if ( $model && $model->is_show == 0 ) {
 										echo 'checked';
 									} ?>>隐藏
+                                </label>
+                            </div>
+                            <label class="control-label col-sm-1">是否删除</label>
+                            <div class="col-sm-3">
+                                <label class="checkbox-inline">
+                                    <input type="radio" name="is_delete"
+                                           value="0" <?php if ( ! $model || $model->is_delete == 0 ) {
+				                        echo 'checked';
+			                        } ?>>保留
+                                </label>&nbsp;&nbsp;&nbsp;&nbsp;
+                                <label class="checkbox-inline">
+                                    <input type="radio" name="is_delete"
+                                           value="1" <?php if ( $model && $model->is_delete == 1 ) {
+				                        echo 'checked';
+			                        } ?>>删除
                                 </label>
                             </div>
                         </div>

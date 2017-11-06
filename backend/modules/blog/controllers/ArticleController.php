@@ -14,7 +14,7 @@ class ArticleController extends BaseController {
 	{
 		$data = [
 			'addArticleUrl' => '/blog/article/edit-article?type=add',
-			'articleList' => BlogArticle::find()->all()
+			'articleList'   => BlogArticle::find()->all()
 		];
 
 		return $this->render( 'index', $data );
@@ -33,10 +33,10 @@ class ArticleController extends BaseController {
 				$data         = [ 'content' => RequestHelper::post( 'content' ), 'article_id' => $model->id ];
 				$articleModel = BlogArticleExtend::findOne( [ 'article_id' => $model->id ] ) ?: new BlogArticleExtend();
 				$articleModel->load( $data, '' ) and $articleModel->save();
-				return ['code'=>200, 'msg'=>'成功','url'=>'/blog/article/index'];
+
+				return [ 'code' => 200, 'msg' => '成功', 'url' => '/blog/article/index' ];
 			} else {
-				var_dump($model->getErrors());die;
-				return ['code'=>101, 'msg'=>'失败，数据有误','url'=>'/blog/article/index'];
+				return [ 'code' => 101, 'msg' => '失败，数据有误', 'url' => '/blog/article/index' ];
 			}
 
 		} else {
@@ -48,5 +48,13 @@ class ArticleController extends BaseController {
 			'model'             => $model,
 			'firstCategoryList' => $firstCategoryList,
 		] );
+	}
+
+	/**
+	 * 回收站
+	 */
+	public function actionRecyle()
+	{
+
 	}
 }

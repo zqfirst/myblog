@@ -18,6 +18,15 @@ class ArrayHelper extends \yii\helpers\ArrayHelper
         return $emptyObj;
     }
 
+	/**
+	 * 无限极分类
+	 *
+	 * @param $data
+	 * @param string $parent_key
+	 * @param int $parent_id
+	 *
+	 * @return array
+	 */
     static public function unLimitLevelTree(&$data, $parent_key = 'parent_id', $parent_id = 0)
     {
         foreach ($data as $key=>$val) {

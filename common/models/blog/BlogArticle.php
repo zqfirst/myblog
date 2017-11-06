@@ -19,6 +19,12 @@ use Yii;
  */
 class BlogArticle extends \yii\db\ActiveRecord
 {
+	const SHOW = '1';
+	const NOT_SHOW = '0';
+
+	const DELETE = '1';
+	const NOT_DELETE = '0';
+
     /**
      * @inheritdoc
      */
@@ -59,11 +65,21 @@ class BlogArticle extends \yii\db\ActiveRecord
         ];
     }
 
+	/**
+	 * 获取分类
+	 *
+	 * @return \yii\db\ActiveQuery
+	 */
     public function getCategory()
     {
     	return $this->hasOne(BlogCategory::className(),['id'=>'category_id']);
     }
 
+	/**
+	 * 获取文章内容
+	 *
+	 * @return \yii\db\ActiveQuery
+	 */
     public function getArticleExtend()
     {
     	return $this->hasOne(BlogArticleExtend::className(),['article_id'=>'id']);

@@ -33,7 +33,7 @@ $this->title = '文章列表';
                     <td><?=$list->category->name?></td>
                     <td><?=$list->decription?></td>
                     <td>
-                        <a href="">删除</a> | <a href="/blog/article/edit-article?type=edit&id=<?=$list->id?>">编辑</a>
+                        <a href="/blog/article/edit-article?type=edit&id=<?=$list->id?>">编辑</a> | <a href="">删除</a>
                     </td>
                 </tr>
         <?php
