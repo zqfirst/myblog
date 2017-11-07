@@ -97,19 +97,19 @@ $this->registerJsFile( '/public/plugins/utf8-php/ueditor.all.js', [ 'position' =
 									} ?>>隐藏
                                 </label>
                             </div>
-                            <label class="control-label col-sm-1">是否删除</label>
+                            <label class="control-label col-sm-1">是否推荐</label>
                             <div class="col-sm-3">
                                 <label class="checkbox-inline">
-                                    <input type="radio" name="is_delete"
-                                           value="0" <?php if ( ! $model || $model->is_delete == 0 ) {
+                                    <input type="radio" name="is_recommend"
+                                           value="0" <?php if ( ! $model || $model->is_recommend == 0 ) {
 				                        echo 'checked';
-			                        } ?>>保留
+			                        } ?>>暂不推荐
                                 </label>&nbsp;&nbsp;&nbsp;&nbsp;
                                 <label class="checkbox-inline">
-                                    <input type="radio" name="is_delete"
-                                           value="1" <?php if ( $model && $model->is_delete == 1 ) {
+                                    <input type="radio" name="is_recommend"
+                                           value="1" <?php if ( $model && $model->is_recommend == 1 ) {
 				                        echo 'checked';
-			                        } ?>>删除
+			                        } ?>>推荐
                                 </label>
                             </div>
                         </div>

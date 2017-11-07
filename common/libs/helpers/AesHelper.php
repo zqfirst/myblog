@@ -1,6 +1,6 @@
 <?php
 
-namespace common\libs;
+namespace common\libs\helpers;
 /**
  * @method encrypt AES加密算法 其中padding为pkcs5padding算法
  * @method decrypt AES解密算法

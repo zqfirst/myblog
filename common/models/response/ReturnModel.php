@@ -2,7 +2,7 @@
 
 namespace common\models\response;
 
-use common\libs\ArrayHelper;
+use common\libs\helpers\ArrayHelper;
 
 class ReturnModel
 {

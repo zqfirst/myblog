@@ -1,6 +1,6 @@
 <?php
 
-namespace common\libs;
+namespace common\libs\helpers;
 
 class ArrayHelper extends \yii\helpers\ArrayHelper
 {

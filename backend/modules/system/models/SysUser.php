@@ -2,8 +2,8 @@
 
 namespace backend\modules\system\models;
 
-use common\libs\AesHelper;
-use common\libs\ConfigHelper;
+use common\libs\helpers\AesHelper;
+use common\libs\helpers\ConfigHelper;
 use Yii;
 
 /**

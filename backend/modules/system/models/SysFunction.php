@@ -2,7 +2,7 @@
 
 namespace backend\modules\system\models;
 
-use common\libs\ArrayHelper;
+use common\libs\helpers\ArrayHelper;
 
 /**
  * This is the model class for table "sys_function".

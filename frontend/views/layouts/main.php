@@ -30,7 +30,7 @@
     <?php endif;?>
     <?php if($this->context->hasNav):?>
     <article>
-        <h1 class="t_nav"><span><?=$this->context->words?></span><a href="/" class="n1">网站首页</a><a href="javascript:;" class="n2"><?=$this->title?></a></h1>
+        <h1 class="t_nav"><span><?=$this->context->words?></span><a href="/" class="n1">网站首页</a><a href="javascript:;" class="n2"><?=$this->context->title?></a></h1>
     </article>
     <?php endif;?>
     <?= $content ?>

@@ -12,7 +12,9 @@ use Yii;
  * @property string $category_id
  * @property string $keywords
  * @property string $decription
+ * @property integer $type
  * @property integer $is_show
+ * @property integer $is_recommend
  * @property integer $is_delete
  * @property string $create_time
  * @property string $update_time
@@ -24,6 +26,12 @@ class BlogArticle extends \yii\db\ActiveRecord
 
 	const DELETE = '1';
 	const NOT_DELETE = '0';
+
+	const ARTICLE_TYPE_BLOG = 1;
+	const ARTICLE_TYPE_ABOUT_ME = 2;
+
+	const RECOMMEND = 1;
+	const NOT_RECOMMEND = 0;
 
     /**
      * @inheritdoc
@@ -40,7 +48,7 @@ class BlogArticle extends \yii\db\ActiveRecord
     {
         return [
             [['is_show', 'title','keywords'], 'required'],
-            [['id', 'category_id','is_show', 'is_delete'], 'integer'],
+            [['id', 'category_id','is_show', 'is_delete', 'is_recommend', 'type'], 'integer'],
             [['create_time', 'update_time'], 'safe'],
             [['title', 'keywords', 'decription'], 'string', 'max' => 150],
             [['decription'], 'string', 'max' => 300],
@@ -58,7 +66,9 @@ class BlogArticle extends \yii\db\ActiveRecord
             'category_id' => 'Category Id',
             'keywords' => 'Keywords',
             'decription' => 'Decription',
+            'type' => 'Type',
             'is_show' => 'Is Show',
+            'is_recommend' => 'Is Recommend',
             'is_delete' => 'Is Delete',
             'create_time' => 'Create Time',
             'update_time' => 'Update Time',
