@@ -7,8 +7,6 @@
  */
 namespace frontend\modules\life\controllers;
 
-use Yii;
-
 class LifeController extends \frontend\controllers\BaseController
 {
     /* *
