@@ -14,32 +14,28 @@ use common\libs\http\RequestHelper;
 use yii\web\Response;
 
 class BaseController extends \yii\web\Controller {
+
 	public $layout = '/main';
 	protected $hasTop = true;
 	protected $hasFoot = true;
 	public $indexMenu = [];
 	public $currentFunction;
-	protected $success = [ 'code' => 200, 'msg' => '成功' ];
-	protected $fail = [ 'code' => 201, 'msg' => '失败' ];
 
-	public function beforeAction( $action )
-	{
-		if ( \Yii::$app->request->isAjax ) {
+	public function beforeAction( $action ) {
+		if( ( \Yii::$app->request->isAjax && \Yii::$app->request->isPost ) || RequestHelper::get( 'format', '' ) == Response::FORMAT_JSON ) {
 			\Yii::$app->response->format = Response::FORMAT_JSON;
 		}
 
 		return parent::beforeAction( $action );
 	}
 
-	public function init()
-	{
+	public function init() {
 		$this->indexMenu       = SysFunction::getFunctionLevel();
 		$this->currentFunction = SysFunction::findOne( [ 'route' => \Yii::$app->request->url ] );
 		parent::init();
 	}
 
-	public function behaviors()
-	{
+	public function behaviors() {
 		return [
 			'access_auth' => [
 				'class' => UserAuthControl::className(),
@@ -47,8 +43,7 @@ class BaseController extends \yii\web\Controller {
 		];
 	}
 
-	public function actions()
-	{
+	public function actions() {
 		return [
 			'error'   => [
 				'class' => 'yii\web\ErrorAction',
@@ -66,11 +61,9 @@ class BaseController extends \yii\web\Controller {
 	 *
 	 * @return array|string
 	 */
-	public function render( $view, $params = [] )
-	{
+	public function render( $view, $params = [] ) {
 		//查看返回的数据信息
-		if ( strtolower( RequestHelper::get( 'format' ) ) === Response::FORMAT_JSON ) {
-			\Yii::$app->response->format = Response::FORMAT_JSON;
+		if( strtolower( RequestHelper::get( 'format' ) ) === Response::FORMAT_JSON ) {
 			return $params;
 		}
 		$params = array_merge( $params, [ 'constUrlArray' => \Url::getUrl() ] );
