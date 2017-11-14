@@ -20,9 +20,11 @@ class BlogController extends BaseController {
 	public function actionIndex()
 	{
 		$articleList = ArticleHelper::getRecentList();
+		$newArticleList = ArticleHelper::getRecentList(1,10);
 
 		return $this->render( 'techList', [
-			'articleList' => $articleList
+			'articleList' => $articleList,
+			'newArticleList' => $newArticleList
 		] );
 	}
 

@@ -30,7 +30,7 @@ $this->title = '文章列表';
                 <tr>
                     <td><?= $key + 1 ?></td>
                     <td><?= $list->title ?></td>
-                    <td><?= $list->category->name ?></td>
+                    <td><?= isset($list->category->name) ?  $list->category->name : ''?></td>
                     <td><?= $list->decription ?></td>
                     <td>
                         <a href="/blog/article/edit-article?type=edit&id=<?= $list->id ?>">编辑</a> | <a

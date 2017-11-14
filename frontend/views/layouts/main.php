@@ -38,7 +38,7 @@
     <?= $content ?>
     <?php if($this->context->hasFoot):?>
     <footer>
-        <p>Design by DanceSmile <a href="http://www.miitbeian.gov.cn/" target="_blank">蜀ICP备11002373号-1</a> <a href="/">网站统计</a></p>
+        <p><a href="http://www.yangqq.com">Design by DanceSmile</a> <a href="http://www.miitbeian.gov.cn/" target="_blank">京ICP备15064819号</a></p>
     </footer>
     <?php endif;?>
     <?php $this->endBody() ?>
