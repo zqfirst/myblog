@@ -18,9 +18,9 @@
 <!--        <div id="logo"><a href="/"></a></div>-->
         <div id="logo"><a href="/">Coder·张</a></div>
         <nav class="topnav" id="topnav">
-            <?foreach ($this->context->titleArr as $titleArr):?>
+            <?php foreach ($this->context->titleArr as $titleArr):?>
             <a href="<?=$titleArr['url']?>"><span><?=$titleArr['name']?></span><span class="en"><?=$titleArr['english']?></span></a>
-            <?endforeach;?>
+            <?php endforeach;?>
 <!--            <a href="/blog/blog/index"><span>博客</span><span class="en">blog</span></a>-->
 <!--            <a href="/life/life/say"><span>碎言碎语</span><span class="en">Doing</span></a>-->
 <!--            <a href="share.html"><span>模板分享</span><span class="en">Share</span></a>-->
