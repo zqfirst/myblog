@@ -9,8 +9,8 @@ $this->registerCssFile( '/static/css/technology/techList.css' );
 			foreach ( $articleList as $list ):
 				?>
                 <h2><?=$list->title?></h2>
-                <p class="dateview"><span>发布时间：2013-11-04</span><span>作者：杨青</span><span>分类：[<a
-                                href="/news/life/">程序人生</a>]</span></p>
+                <p class="dateview"><span>发布时间：<?=$list->create_time?></span><span>作者：dd</span><span>分类：[<a
+                                href="/news/life/"><?=isset($list->category->name)?$list->category->name:'暂无分类' ?></a>]</span></p>
                 <!--        <figure><img src="/static/images/001.png"></figure>-->
                 <ul class="nlist">
                     <?=$list->decription?>
