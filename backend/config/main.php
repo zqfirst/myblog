@@ -54,6 +54,9 @@ return [
         'blog' => [
 	        'class' => 'backend\modules\blog\Module'
         ],
+        'words' => [
+	        'class' => 'backend\modules\words\Module'
+        ],
     ],
     'params' => $params,
 ];

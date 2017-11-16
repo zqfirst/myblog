@@ -60,10 +60,10 @@ class BaseController extends Controller {
 				'english' => 'Blog',
 				'url'  => '/blog/blog/index',
 			],
-			LifeController::className() => [
+			WordsController::className() => [
 				'name' => '闲言碎语',
 				'english' => 'Saying',
-				'url'  => '/life/life/say',
+				'url'  => '/words/words/words-list',
 			],
 			AboutMeController::className() => [
 				'name' => '关于我',

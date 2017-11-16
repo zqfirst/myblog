@@ -24,6 +24,13 @@ article { width: 1000px; margin: 20px auto; overflow: hidden }
 aside { width: 250px; }
 footer { text-align: center; line-height: 40px; border-top: #E8E8E8 1px solid ; width:1000px; margin:auto}
 
+/* CSS Document */
+.moodlist { margin: auto; width: 100%; overflow: hidden }
+/* --------------------博客列表-------------------- */
+h1.t_nav span{ float:right; color:#999}
+h1.t_nav { border-bottom: #F1F1F1 1px solid; font-size: 12px; font-weight: normal; line-height: 40px; height: 40px;margin:20px auto;width:1000px }
+h1.t_nav a { width: 100px; display: block; text-align: center; color: #fff; float: left }
+
 
 
 
