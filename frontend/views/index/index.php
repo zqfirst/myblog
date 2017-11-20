@@ -29,7 +29,7 @@ $this->registerCssFile( '/static/css/index.css' );
 				?>
                 <ul>
 					<?= $list->decription ?>
-                    <a title="/" href="#" target="_blank" class="readmore">阅读全文>></a>
+                    <a title="/" href="/blog/blog/detail?article_id=<?= $list->id ?>" target="_blank" class="readmore">阅读全文>></a>
                 </ul>
                 <p class="dateview"><span><?=$list->create_time?></span><span>作者：dd</span><span>个人博客：[<a href="/news/life/"><?=isset($list->category->name)?$list->category->name:'暂无分类' ?></a>]</span>
                 </p>
