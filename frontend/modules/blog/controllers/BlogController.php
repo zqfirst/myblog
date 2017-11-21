@@ -39,11 +39,11 @@ class BlogController extends BaseController {
 	public function actionDetail( $article_id )
 	{
 		$articleModel   = BlogArticle::findOne( [ 'id' => $article_id, 'is_delete' => BlogArticle::NOT_DELETE ] );
-		$newArticleList = ArticleHelper::getRecentList();
+		$newArticle = ArticleHelper::getRecentList();
 
 		return $this->render( 'teacDetail', [
 			'articleModle'   => $articleModel,
-			'newArticleList' => $newArticleList
+			'newArticleList' => $newArticle['list']
 		] );
 	}
 }
