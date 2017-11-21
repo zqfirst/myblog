@@ -23,9 +23,8 @@ $this->registerCssFile( '/static/css/words/say.css' );
 		?>
     </div>
     <div class="page">
-        <a title="Total record"><b>41</b></a><b>1</b>
-        <a href="/static/images//index_2.html">2</a>
-        <a href="/static/images/index_2.html">&gt;</a>
-        <a href="/static/images//index_2.html">&gt;&gt;</a>
+	    <?=\yii\widgets\LinkPager::widget([
+		    'pagination' => $pages,
+	    ]);?>
     </div>
 </div>

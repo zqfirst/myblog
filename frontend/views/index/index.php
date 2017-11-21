@@ -37,6 +37,11 @@ $this->registerCssFile( '/static/css/index.css' );
 			endforeach;
 		endif;
 		?>
+        <div class="page">
+		    <?=\yii\widgets\LinkPager::widget([
+			    'pagination' => $pages,
+		    ]);?>
+        </div>
     </div>
     <aside class="right">
         <div class="weather">

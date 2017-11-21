@@ -26,18 +26,13 @@ $this->registerCssFile( '/static/css/technology/techList.css' );
         <div class="ad">
 
         </div>
-        <div class="page"><a title="Total record"><b>41</b></a><b>1</b><a href="/news/s/index_2.html">2</a><a
-                    href="/news/s/index_2.html">&gt;</a><a href="/news/s/index_2.html">&gt;&gt;</a></div>
+        <div class="page">
+            <?=\yii\widgets\LinkPager::widget([
+	            'pagination' => $pages,
+            ]);?>
+        </div>
     </div>
     <aside class="right">
-        <!--<div class="rnav">
-            <ul>
-                <li class="rnav1"><a href="/download/" target="_blank">日记</a></li>
-                <li class="rnav2"><a href="/newsfree/" target="_blank">程序人生</a></li>
-                <li class="rnav3"><a href="/web/" target="_blank">欣赏</a></li>
-                <li class="rnav4"><a href="/newshtml5/" target="_blank">短信祝福</a></li>
-            </ul>
-        </div>-->
 		<?php
 		if( isset( $newArticleList ) && is_array( $newArticleList ) ):
 			?>

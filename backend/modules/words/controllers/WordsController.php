@@ -11,7 +11,7 @@ class WordsController extends BaseController {
 	public function actionIndex() {
 		return $this->render( 'index', [
 			'addWordsUrl' => '/words/words/edit-words?type=add',
-			'wordList' => BlogWords::findAll(['1'=>1])
+			'wordList' => BlogWords::find()->all()
 		] );
 	}
 
