@@ -15,7 +15,7 @@ $this->registerCssFile( '/static/css/technology/techList.css' );
                 <!--        <figure><img src="/static/images/001.png"></figure>-->
                 <ul class="nlist">
 					<?= $list->decription ?>
-                    <a title="/" href="/blog/blog/detail?article_id=<?= $list->id ?>" target="_blank" class="readmore">阅读全文>></a>
+                    <a title="/" href="/blog/blog/detail?article_id=<?= $list->id ?>"  class="readmore">阅读全文>></a>
                 </ul>
                 <div class="line"></div>
 				<?php
@@ -43,8 +43,7 @@ $this->registerCssFile( '/static/css/technology/techList.css' );
 				<?php
 				foreach ( $newArticleList as $list ):
 					?>
-                    <li><a href="/blog/blog/detail?article_id=<?= $list->id ?>" title="<?= $list->title ?>"
-                           target="_blank"><?= $list->title ?></a></li>
+                    <li><a href="/blog/blog/detail?article_id=<?= $list->id ?>" title="<?= $list->title ?>"><?= $list->title ?></a></li>
 				<?php endforeach; ?>
             </ul>
 		<?php endif; ?>
@@ -52,11 +51,11 @@ $this->registerCssFile( '/static/css/technology/techList.css' );
 			 <p>点击<span>排行</span></p>
 		 </h3>
 		 <ul class="paih">
-			 <li><a href="/" title="Column 三栏布局 个人网站模板" target="_blank">Column 三栏布局 个人网站模板</a></li>
-			 <li><a href="/" title="withlove for you 个人网站模板" target="_blank">with love for you 个人网站模板</a></li>
-			 <li><a href="/" title="免费收录网站搜索引擎登录口大全" target="_blank">免费收录网站搜索引擎登录口大全</a></li>
-			 <li><a href="/" title="做网站到底需要什么?" target="_blank">做网站到底需要什么?</a></li>
-			 <li><a href="/" title="企业做网站具体流程步骤" target="_blank">企业做网站具体流程步骤</a></li>
+			 <li><a href="/" title="Column 三栏布局 个人网站模板" >Column 三栏布局 个人网站模板</a></li>
+			 <li><a href="/" title="withlove for you 个人网站模板" >with love for you 个人网站模板</a></li>
+			 <li><a href="/" title="免费收录网站搜索引擎登录口大全" >免费收录网站搜索引擎登录口大全</a></li>
+			 <li><a href="/" title="做网站到底需要什么?" >做网站到底需要什么?</a></li>
+			 <li><a href="/" title="企业做网站具体流程步骤" >企业做网站具体流程步骤</a></li>
 		 </ul>
 	 </div>-->
         <!--<div class="visitors">

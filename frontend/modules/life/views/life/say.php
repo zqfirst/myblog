@@ -7,7 +7,6 @@ $this->registerCssFile( '/static/css/life/say.css' );
 		<?php
 		if( isset( $wordsList ) && $wordsList ):
 			foreach ( $wordsList as $list ):
-                echo 222;die;
 				?>
                 <ul class="arrow_box">
                     <div class="sy">
