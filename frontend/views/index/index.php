@@ -29,25 +29,24 @@ $this->registerCssFile( '/static/css/index.css' );
 				?>
                 <ul>
 					<?= $list->decription ?>
-                    <a title="/" href="/blog/blog/detail?article_id=<?= $list->id ?>"  class="readmore">阅读全文>></a>
+                    <a title="/" href="/blog/blog/detail?article_id=<?= $list->id ?>" class="readmore">阅读全文>></a>
                 </ul>
-                <p class="dateview"><span><?=$list->create_time?></span><span>作者：dd</span><span>个人博客：[<a href="jvascript:;"><?=isset($list->category->name)?$list->category->name:'暂无分类' ?></a>]</span>
+                <p class="dateview"><span><?= $list->create_time ?></span><span>作者：dd</span><span>个人博客：[<a
+                                href="jvascript:;"><?= isset( $list->category->name ) ? $list->category->name : '暂无分类' ?></a>]</span>
                 </p>
 				<?php
 			endforeach;
 		endif;
 		?>
         <div class="page">
-		    <?=\yii\widgets\LinkPager::widget([
-			    'pagination' => $pages,
-		    ]);?>
+			<?= \yii\widgets\LinkPager::widget( [
+				'pagination' => $pages,
+			] ); ?>
         </div>
     </div>
     <aside class="right">
         <div class="weather">
-<!--            <iframe width="250" scrolling="no" height="60" frameborder="0" allowtransparency="true"-->
-<!--                    src="http://i.tianqi.com/index.php?c=code&id=12&icon=1&num=1"></iframe>-->
-            <iframe src="//www.seniverse.com/weather/weather.aspx?uid=U99359D647&cid=CHBJ000000&l=zh-CHS&p=SMART&a=0&u=C&s=31&m=0&x=1&d=0&fc=&bgc=&bc=&ti=0&in=0&li=" frameborder="0" scrolling="no" width="250" height="60" allowTransparency="true"></iframe>
+            <iframe src="//www.seniverse.com/weather/weather.aspx?uid=U99359D647&cid=CHBJ000000&l=zh-CHS&p=SMART&a=0&u=C&s=3&m=0&x=1&d=0&fc=&bgc=&bc=&ti=0&in=0&li="  frameborder="0" scrolling="no" width="230" height="85" allowTransparency="true"></iframe>
         </div>
         <div class="news">
 			<?php
@@ -60,7 +59,8 @@ $this->registerCssFile( '/static/css/index.css' );
 					<?php
 					foreach ( $newArticleList as $list ):
 						?>
-                        <li><a href="/blog/blog/detail?article_id=<?= $list->id ?>" title="<?=$list->title?>" ><?=$list->title?></a></li>
+                        <li><a href="/blog/blog/detail?article_id=<?= $list->id ?>"
+                               title="<?= $list->title ?>"><?= $list->title ?></a></li>
 					<?php endforeach; ?>
                 </ul>
 			<?php endif; ?>
@@ -90,9 +90,18 @@ $this->registerCssFile( '/static/css/index.css' );
                     class="bds_more"></span><a class="shareCount"></a></div>
         <script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=6574585"></script>
         <script type="text/javascript" id="bdshell_js"></script>
-        <script type="text/javascript">
-            document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date() / 3600000)
-        </script>
+        <!-- JiaThis Button END -->
+        <div class="bshare-custom icon-medium-plus"><a title="分享到QQ空间" class="bshare-qzone"></a><a title="分享到朋友网"
+                                                                                                   class="bshare-qqxiaoyou"></a><a
+                    title="分享到腾讯微博" class="bshare-qqmb"></a><a title="更多平台"
+                                                               class="bshare-more bshare-more-icon more-style-addthis"></a><span
+                    class="BSHARE_COUNT bshare-share-count">0</span></div>
+        <script type="text/javascript" charset="utf-8"
+                src="http://static.bshare.cn/b/button.js#style=-1&amp;uuid=&amp;pophcol=2&amp;lang=zh"></script>
+        <script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/bshareC0.js"></script>
+        <!--        <script type="text/javascript">-->
+        <!--            document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date() / 3600000)-->
+        <!--        </script>-->
         <!-- Baidu Button END -->
         <!--        <a href="/" class="weixin"> </a></aside>-->
 </article>
