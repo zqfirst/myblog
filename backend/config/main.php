@@ -17,8 +17,9 @@ return [
             'csrfParam' => '_csrf-backend',
         ],
         'user' => [
-            'identityClass' => 'common\models\User',
+            'identityClass' => 'backend\modules\system\models\SysUser',
             'enableAutoLogin' => true,
+	        'loginUrl' => '/login/login',
             'identityCookie' => ['name' => '_identity-backend', 'httpOnly' => true],
         ],
         'session' => [

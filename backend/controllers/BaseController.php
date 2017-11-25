@@ -11,17 +11,20 @@ namespace backend\controllers;
 use backend\modules\system\lib\auth\UserAuthControl;
 use backend\modules\system\models\SysFunction;
 use common\libs\http\RequestHelper;
+use yii\filters\AccessControl;
+use yii\filters\VerbFilter;
 use yii\web\Response;
 
 class BaseController extends \yii\web\Controller {
 
 	public $layout = '/main';
-	protected $hasTop = true;
-	protected $hasFoot = true;
+	public $hasTop = true;
+	public $hasFoot = true;
 	public $indexMenu = [];
 	public $currentFunction;
 
-	public function beforeAction( $action ) {
+	public function beforeAction( $action )
+	{
 		if( ( \Yii::$app->request->isAjax && \Yii::$app->request->isPost ) || RequestHelper::get( 'format', '' ) == Response::FORMAT_JSON ) {
 			\Yii::$app->response->format = Response::FORMAT_JSON;
 		}
@@ -29,21 +32,46 @@ class BaseController extends \yii\web\Controller {
 		return parent::beforeAction( $action );
 	}
 
-	public function init() {
+	public function init()
+	{
 		$this->indexMenu       = SysFunction::getFunctionLevel();
 		$this->currentFunction = SysFunction::findOne( [ 'route' => \Yii::$app->request->url ] );
 		parent::init();
 	}
 
-	public function behaviors() {
+	public function behaviors()
+	{
+//		return [
+//			'access_auth' => [
+//				'class' => UserAuthControl::className(),
+//			]
+//		];
 		return [
-			'access_auth' => [
+			'access' => [
 				'class' => UserAuthControl::className(),
-			]
+				'rules' => [
+					[
+						'actions' => ['login', 'error'],
+						'allow' => true,
+					],
+					[
+						'actions' => ['logout'],
+						'allow' => true,
+						'roles' => ['@'],
+					],
+				],
+			],
+			'verbs' => [
+				'class' => VerbFilter::className(),
+				'actions' => [
+					'logout' => ['post'],
+				],
+			],
 		];
 	}
 
-	public function actions() {
+	public function actions()
+	{
 		return [
 			'error'   => [
 				'class' => 'yii\web\ErrorAction',
@@ -61,7 +89,8 @@ class BaseController extends \yii\web\Controller {
 	 *
 	 * @return array|string
 	 */
-	public function render( $view, $params = [] ) {
+	public function render( $view, $params = [] )
+	{
 		//查看返回的数据信息
 		if( strtolower( RequestHelper::get( 'format' ) ) === Response::FORMAT_JSON ) {
 			return $params;
