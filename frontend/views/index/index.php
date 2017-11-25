@@ -31,7 +31,7 @@ $this->registerCssFile( '/static/css/index.css' );
 					<?= $list->decription ?>
                     <a title="/" href="/blog/blog/detail?article_id=<?= $list->id ?>" class="readmore">阅读全文>></a>
                 </ul>
-                <p class="dateview"><span><?= $list->create_time ?></span><span>作者：dd</span><span>个人博客：[<a href="jvascript:;"><?= isset( $list->category->name ) ? $list->category->name : '暂无分类' ?></a>]</span>
+                <p class="dateview"><span><?= $list->create_time ?></span><span>作者：dd</span><span>个人博客：[<a href="javascript:;"><?= isset( $list->category->name ) ? $list->category->name : '暂无分类' ?></a>]</span>
                 </p>
 				<?php
 			endforeach;

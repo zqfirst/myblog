@@ -10,7 +10,7 @@ $this->registerCssFile( '/static/css/technology/techList.css' );
 				?>
                 <h2><?= $list->title ?></h2>
                 <p class="dateview"><span>发布时间：<?= $list->create_time ?></span><span>作者：dd</span><span>分类：[<a
-                                href="jvascript:;"><?= isset( $list->category->name ) ? $list->category->name : '暂无分类' ?></a>]</span>
+                                href="javascript:;"><?= isset( $list->category->name ) ? $list->category->name : '暂无分类' ?></a>]</span>
                 </p>
                 <!--        <figure><img src="/static/images/001.png"></figure>-->
                 <ul class="nlist">
