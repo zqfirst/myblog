@@ -13,13 +13,13 @@ class FunctionController extends BaseController
     public function actionIndex()
     {
         $data = [
-            'addFunctionUrl' => '/system/function/add-function?type=add',
+            'functionUrl' => '/system/function/edit-function',
             'functionList' => SysFunction::getAll()
         ];
         return $this->render('list', $data);
     }
 
-    public function actionAddFunction()
+    public function actionEditFunction()
     {
         $type = RequestHelper::get('type','add');
         $function_id = RequestHelper::get('id');

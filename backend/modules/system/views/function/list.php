@@ -13,7 +13,7 @@
 </section>
 <section class="content">
     <p style="margin: 10px">
-        <a href="<?=$addFunctionUrl?>"><button class="btn btn-primary col-lg-1">新增功能</button></a>
+        <a href="<?=$functionUrl?>?type=add"><button class="btn btn-primary col-lg-1">新增功能</button></a>
     </p>
     <table class="table text-center">
         <tr>
@@ -33,7 +33,7 @@
                 <td><?=$list->validName?></td>
                 <td><?=$list->typeName?></td>
                 <td><?=$list->class?></td>
-                <td><a href="/system/function/add-function?type=edit&id=<?=$list->id?>">编辑</a></td>
+                <td><a href="<?=$functionUrl?>?type=edit&id=<?=$list->id?>">编辑</a></td>
             </tr>
         <?php endforeach;?>
     </table>

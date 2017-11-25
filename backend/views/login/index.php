@@ -31,7 +31,7 @@
 
         <form action="" method="post" id="login-form">
             <div class="form-group has-feedback">
-                <input type="email" name="username" class="form-control" placeholder="Account">
+                <input type="text" name="username" class="form-control" placeholder="Account">
                 <span class="glyphicon glyphicon-user form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">

@@ -66,7 +66,7 @@ $this->registerJsFile( '/public/plugins/laypage/laypage.js' );
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <img src="/public/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-                            <span class="hidden-xs"><<?=\Yii::$app->user->identity ? \Yii::$app->user->getIdentity()->username : ''?></span>
+                            <span class="hidden-xs"><?=\Yii::$app->user->identity ? \Yii::$app->user->getIdentity()->username : ''?></span>
                         </a>
                         <ul class="dropdown-menu">
                             <!-- User image -->

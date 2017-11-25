@@ -38,7 +38,7 @@ class BlogWords extends \yii\db\ActiveRecord
     {
         return [
             [['create_time', 'update_time'], 'safe'],
-            [['words'], 'string', 'max' => 45],
+            [['words'], 'string', 'max' => 500],
             [['images'], 'string', 'max' => 100],
             [['is_delete', 'is_show'], 'integer', 'max' => 1],
         ];

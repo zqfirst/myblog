@@ -1,5 +1,5 @@
 <?php
-$this->title = '测试';
+$this->title = '个人博客后台';
 ?>
 <section class="content-header">
     <h1>
@@ -17,5 +17,8 @@ $this->title = '测试';
     </p>
     <p>
         php-version : <?= phpversion() ;?>
+    </p>
+    <p>
+        mysql : 连接用户(<?= \Yii::$app->db->username?>)
     </p>
 </section>
