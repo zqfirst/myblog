@@ -10,10 +10,10 @@ class LoginController extends BaseController
 {
     public $hasTop = false;
     public $hasFoot = false;
+    public $layout = false;
 
     public function actionIndex()
     {
-        $this->renderMenu = false;
         $model = new LoginForm();
         if (Yii::$app->request->isAjax) {
             Yii::$app->response->format = Response::FORMAT_JSON;
@@ -24,6 +24,6 @@ class LoginController extends BaseController
             }
         }
 
-        return $this->renderPartial('login', ['model' => $model]);
+        return $this->render('index', ['model' => $model]);
     }
 }

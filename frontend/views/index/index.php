@@ -31,7 +31,7 @@ $this->registerCssFile( '/static/css/index.css' );
 					<?= $list->decription ?>
                     <a title="/" href="/blog/blog/detail?article_id=<?= $list->id ?>"  class="readmore">阅读全文>></a>
                 </ul>
-                <p class="dateview"><span><?=$list->create_time?></span><span>作者：dd</span><span>个人博客：[<a href="/news/life/"><?=isset($list->category->name)?$list->category->name:'暂无分类' ?></a>]</span>
+                <p class="dateview"><span><?=$list->create_time?></span><span>作者：dd</span><span>个人博客：[<a href="jvascript:;"><?=isset($list->category->name)?$list->category->name:'暂无分类' ?></a>]</span>
                 </p>
 				<?php
 			endforeach;
@@ -59,7 +59,7 @@ $this->registerCssFile( '/static/css/index.css' );
 					<?php
 					foreach ( $newArticleList as $list ):
 						?>
-                        <li><a href="/" title="<?=$list->title?>" ><?=$list->title?></a></li>
+                        <li><a href="/blog/blog/detail?article_id=<?= $list->id ?>" title="<?=$list->title?>" ><?=$list->title?></a></li>
 					<?php endforeach; ?>
                 </ul>
 			<?php endif; ?>

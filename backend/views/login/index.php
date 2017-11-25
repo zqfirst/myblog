@@ -1,82 +1,73 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>SB Admin 2 - Bootstrap Admin Theme</title>
-
-    <!-- Bootstrap Core CSS -->
-    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- MetisMenu CSS -->
-    <link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
-
-    <!-- Custom CSS -->
-    <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
-
-    <!-- Custom Fonts -->
-    <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
+    <title>登录</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.6 -->
+    <link rel="stylesheet" href="/public/bootstrap/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="/public/plugins/libs/ajax/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="/public/plugins/libs/ajax/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="/public/dist/css/AdminLTE.min.css">
+    <!-- iCheck -->
+    <link rel="stylesheet" href="/public/plugins/iCheck/square/blue.css">
 </head>
+<body class="hold-transition login-page">
+<div class="login-box">
+    <div class="login-logo">
+        <a href="javascript:;"><b>Admin Blog Manage</b></a>
+    </div>
+    <!-- /.login-logo -->
+    <div class="login-box-body">
+        <p class="login-box-msg">Sign in by your password</p>
 
-<body>
-
-<div class="container">
-    <div class="row">
-        <div class="col-md-4 col-md-offset-4">
-            <div class="login-panel panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Please Sign In</h3>
+        <form action="" method="post">
+            <div class="form-group has-feedback">
+                <input type="email" class="form-control" placeholder="Account">
+                <span class="glyphicon glyphicon-user form-control-feedback"></span>
+            </div>
+            <div class="form-group has-feedback">
+                <input type="password" class="form-control" placeholder="Password">
+                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+            </div>
+            <div class="row">
+                <div class="col-xs-8">
+                    <div class="checkbox icheck">
+                        <label>
+                            <input type="checkbox" name="" value=""> Remember Me
+                        </label>
+                    </div>
                 </div>
-                <div class="panel-body">
-                    <form role="form">
-                        <fieldset>
-                            <div class="form-group">
-                                <input class="form-control" placeholder="E-mail" name="email" type="email" autofocus>
-                            </div>
-                            <div class="form-group">
-                                <input class="form-control" placeholder="Password" name="password" type="password" value="">
-                            </div>
-                            <div class="checkbox">
-                                <label>
-                                    <input name="remember" type="checkbox" value="Remember Me">Remember Me
-                                </label>
-                            </div>
-                            <!-- Change this to a button or input when using this as a form -->
-                            <a href="index.html" class="btn btn-lg btn-success btn-block">Login</a>
-                        </fieldset>
-                    </form>
+                <div class="col-xs-4">
+                    <input type="hidden" name="<?=\Yii::$app->request->csrfParam?>" value="<?=\Yii::$app->request->csrfToken?>">
+                    <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
                 </div>
             </div>
-        </div>
+        </form>
     </div>
+    <!-- /.login-box-body -->
 </div>
+<!-- /.login-box -->
 
-<!-- jQuery -->
-<script src="../vendor/jquery/jquery.min.js"></script>
-
-<!-- Bootstrap Core JavaScript -->
-<script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
-
-<!-- Metis Menu Plugin JavaScript -->
-<script src="../vendor/metisMenu/metisMenu.min.js"></script>
-
-<!-- Custom Theme JavaScript -->
-<script src="../dist/js/sb-admin-2.js"></script>
-
+<!-- jQuery 2.2.3 -->
+<script src="/public/plugins/jQuery/jquery-2.2.3.min.js"></script>
+<!-- Bootstrap 3.3.6 -->
+<script src="/public/bootstrap/js/bootstrap.min.js"></script>
+<!-- iCheck -->
+<script src="/public/plugins/iCheck/icheck.min.js"></script>
+<script>
+    $(function () {
+        $('input').iCheck({
+            checkboxClass: 'icheckbox_square-blue',
+            radioClass: 'iradio_square-blue',
+            increaseArea: '20%' // optional
+        });
+    });
+</script>
 </body>
-
 </html>
