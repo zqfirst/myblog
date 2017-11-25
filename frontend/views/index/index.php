@@ -31,8 +31,7 @@ $this->registerCssFile( '/static/css/index.css' );
 					<?= $list->decription ?>
                     <a title="/" href="/blog/blog/detail?article_id=<?= $list->id ?>" class="readmore">阅读全文>></a>
                 </ul>
-                <p class="dateview"><span><?= $list->create_time ?></span><span>作者：dd</span><span>个人博客：[<a
-                                href="jvascript:;"><?= isset( $list->category->name ) ? $list->category->name : '暂无分类' ?></a>]</span>
+                <p class="dateview"><span><?= $list->create_time ?></span><span>作者：dd</span><span>个人博客：[<a href="jvascript:;"><?= isset( $list->category->name ) ? $list->category->name : '暂无分类' ?></a>]</span>
                 </p>
 				<?php
 			endforeach;
@@ -84,24 +83,4 @@ $this->registerCssFile( '/static/css/index.css' );
             <!--                <li><a href="/">思衡网络</a></li>-->
             <!--            </ul>-->
         </div>
-        <!-- Baidu Button BEGIN -->
-        <div id="bdshare" class="bdshare_t bds_tools_32 get-codes-bdshare"><a class="bds_tsina"></a><a
-                    class="bds_qzone"></a><a class="bds_tqq"></a><a class="bds_renren"></a><span
-                    class="bds_more"></span><a class="shareCount"></a></div>
-        <script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=6574585"></script>
-        <script type="text/javascript" id="bdshell_js"></script>
-        <!-- JiaThis Button END -->
-        <div class="bshare-custom icon-medium-plus"><a title="分享到QQ空间" class="bshare-qzone"></a><a title="分享到朋友网"
-                                                                                                   class="bshare-qqxiaoyou"></a><a
-                    title="分享到腾讯微博" class="bshare-qqmb"></a><a title="更多平台"
-                                                               class="bshare-more bshare-more-icon more-style-addthis"></a><span
-                    class="BSHARE_COUNT bshare-share-count">0</span></div>
-        <script type="text/javascript" charset="utf-8"
-                src="http://static.bshare.cn/b/button.js#style=-1&amp;uuid=&amp;pophcol=2&amp;lang=zh"></script>
-        <script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/bshareC0.js"></script>
-        <!--        <script type="text/javascript">-->
-        <!--            document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date() / 3600000)-->
-        <!--        </script>-->
-        <!-- Baidu Button END -->
-        <!--        <a href="/" class="weixin"> </a></aside>-->
 </article>

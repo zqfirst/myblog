@@ -84,16 +84,14 @@ class SysUser extends \yii\db\ActiveRecord implements IdentityInterface {
 		return Yii::$app->getSecurity()->validatePassword( $password . $this->salt, $this->passwd );
 	}
 
-	public function addUser( Array $data )
+	public static function editUser( Array $data )
 	{
-
 		if( ! ( isset( $data['user_id'] ) && $data['user_id'] && $user = self::findOne( [ 'id' => $data['user_id'] ] ) ) ) {
 			$user = new self;
 		}
-
 		$user->username      = $data['username'];
-		$user->salt          = self::getSalt();
-		$user->passwd        = Yii::$app->getSecurity()->generatePasswordHash( $data['passwd'] . $user->salt );
+		$user->salt          = $user->salt ?: self::getSalt();
+		$user->passwd        = $data['passwd'] ? Yii::$app->getSecurity()->generatePasswordHash( $data['passwd'] . $user->salt ) : $user->passwd;
 		$user->phone_encrypt = AesHelper::encrypt( $data['phone'], ConfigHelper::getUserPhoneAesKey() );
 
 		return $user->validate() && $user->save() ? true : false;

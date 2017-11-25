@@ -30,7 +30,7 @@ class UserController extends BaseController {
 		}
 
 		if ( Yii::$app->request->isPost ) {
-			if(( new SysUser() )->addUser( RequestHelper::post() ) ){
+			if(SysUser::editUser( RequestHelper::post() ) ){
 				return ['code'=>\ResponseCode::SUCCESS_CODE, 'msg'=>'成功', 'url'=>'/system/user/index'];
 			}else{
 				return ['code'=>\ResponseCode::FAIL_CODE, 'msg'=>'数据处理失败'];
