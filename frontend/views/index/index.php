@@ -45,8 +45,9 @@ $this->registerCssFile( '/static/css/index.css' );
     </div>
     <aside class="right">
         <div class="weather">
-            <iframe width="250" scrolling="no" height="60" frameborder="0" allowtransparency="true"
-                    src="http://i.tianqi.com/index.php?c=code&id=12&icon=1&num=1"></iframe>
+<!--            <iframe width="250" scrolling="no" height="60" frameborder="0" allowtransparency="true"-->
+<!--                    src="http://i.tianqi.com/index.php?c=code&id=12&icon=1&num=1"></iframe>-->
+            <iframe src="//www.seniverse.com/weather/weather.aspx?uid=U99359D647&cid=CHBJ000000&l=zh-CHS&p=SMART&a=0&u=C&s=31&m=0&x=1&d=0&fc=&bgc=&bc=&ti=0&in=0&li=" frameborder="0" scrolling="no" width="250" height="60" allowTransparency="true"></iframe>
         </div>
         <div class="news">
 			<?php
