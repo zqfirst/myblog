@@ -76,6 +76,17 @@
         });
 
         $('#login').on('click', function () {
+            login();
+        })
+
+        document.onkeydown = function(e){
+            var ev = document.all ? window.event : e;
+            if(ev.keyCode==13) {
+               login();
+            }
+        }
+        
+        function login() {
             $.post('',$('#login-form').serialize(),function (response) {
                 if (response.code == <?=\ResponseCode::SUCCESS_CODE ?>) {
                     layer.closeAll('loading');
@@ -84,8 +95,8 @@
                 } else {
                     layer.msg(response.msg, {icon: 2});
                 }
-            },'json')
-        })
+            },'json');
+        }
     });
 </script>
 </body>
