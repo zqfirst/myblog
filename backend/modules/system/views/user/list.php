@@ -30,7 +30,7 @@ $this->title = '用户列表';
             <td><?=$list->phone?></td>
             <td><?=$list->statusName?></td>
             <td><?=$list->create_time?></td>
-            <td></td>
+            <td><a href="/system/user/add-user?type=edit&id=<?=$list->id?>">编辑</a></td>
         </tr>
         <?php endforeach;?>
     </table>

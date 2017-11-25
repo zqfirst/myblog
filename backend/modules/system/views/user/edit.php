@@ -1,6 +1,7 @@
 <?php
 $this->title =  $type == 'add' ? '新增用户' : '编辑用户';
 $titleSimple = $type == 'add' ? 'User ADD' : 'User Edit';
+
 ?>
 <section class="content-header">
     <h1>
@@ -24,14 +25,14 @@ $titleSimple = $type == 'add' ? 'User ADD' : 'User Edit';
                         <label for="inputUsername" class="col-sm-2 control-label">用户名</label>
 
                         <div class="col-sm-10">
-                            <input type="text" name="username" class="form-control" id="inputUsername" placeholder="username">
+                            <input type="text" name="username" class="form-control" id="inputUsername" placeholder="username" value="<?=isset($user) && $user? $user->username : ''?>">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="inputPhone" class="col-sm-2 control-label">手机号</label>
 
                         <div class="col-sm-10">
-                            <input type="text" name="phone" class="form-control" id="inputPhone" placeholder="Phone">
+                            <input type="text" name="phone" class="form-control" id="inputPhone" placeholder="Phone" value="<?=isset($user) && $user? $user->phone : ''?>">
                         </div>
                     </div>
                     <div class="form-group">

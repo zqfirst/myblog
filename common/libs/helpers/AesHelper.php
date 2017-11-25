@@ -82,7 +82,7 @@ class AesHelper
         /* Terminate decryption handle and close module */
         mcrypt_generic_deinit($module);
         mcrypt_module_close($module);
-
-        return rtrim($decrypted, "\0");
+	    return substr($decrypted, 0, strlen($decrypted) - ord($decrypted[($len = strlen($decrypted)) - 1]));
+//        return rtrim($decrypted, "\0");
     }
 }

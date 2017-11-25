@@ -20,7 +20,7 @@ class UserController extends BaseController {
 
 	public function actionAddUser()
 	{
-		$userId = RequestHelper::getInt( 'uid' );
+		$userId = RequestHelper::getInt( 'id' );
 		$type   = RequestHelper::get( 'type', 'add' );
 		if ( $userId ) {
 			$userInfo = SysUser::findOne( [ 'id' => $userId ] );
@@ -33,7 +33,7 @@ class UserController extends BaseController {
 		}
 
 		return $this->render( 'edit', [
-			'user' => isset( $userInfo ) ?: null,
+			'user' => isset( $userInfo ) ? $userInfo : null,
 			'type' => $type
 		] );
 	}
