@@ -4,13 +4,31 @@ namespace common\libs\helpers;
 
 use Yii;
 
-class ConfigHelper
-{
+class ConfigHelper {
+
 	/**
 	 * 获取用户手机号加密的key
 	 */
-    static public function getUserPhoneAesKey()
-    {
-        return Yii::$app->params['backendKey']['userAesKey'];
-    }
+	public static function getUserPhoneAesKey()
+	{
+		return Yii::$app->params['backendKey']['userAesKey'];
+	}
+
+	/**
+	 * 返回PC域名
+	 *
+	 * @return string
+	 */
+	public static function  getPcUrl(){
+		return rtrim(Yii::$app->params['myblog_host']['pc'], '/'). '/';
+	}
+
+	/**
+	 * 返回wap端地址
+	 *
+	 * @return string
+	 */
+	public static function getWapUrl(){
+		return rtrim(Yii::$app->params['myblog_host']['wap'], '/'). '/';
+	}
 }

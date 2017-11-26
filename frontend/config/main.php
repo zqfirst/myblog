@@ -43,23 +43,23 @@ return [
 //            'suffix' =>'.html',
 //        ],
     ],
-    'modules' => [
-        'life' => [
-            'class' => 'frontend\modules\life\Module'
-        ],
-        'technology' => [
-            'class' => 'frontend\modules\technology\Module'
-        ],
-        'words' => [
-            'class' => 'frontend\modules\words\Module'
-        ],
-        'record' => [
-            'class' => 'frontend\modules\record\Module'
-        ],
-        'blog' => [
-	        'class' => 'frontend\modules\blog\Module'
-        ],
-    ],
     'defaultRoute' => 'index/index',
     'params' => $params,
+    'modules' => [
+	    'life' => [
+		    'class' => 'frontend\modules\life\Module'
+	    ],
+	    'technology' => [
+		    'class' => 'frontend\modules\technology\Module'
+	    ],
+	    'words' => [
+		    'class' => 'frontend\modules\words\Module'
+	    ],
+	    'record' => [
+		    'class' => 'frontend\modules\record\Module'
+	    ],
+	    'blog' => [
+		    'class' => 'frontend\modules\blog\Module'
+	    ],
+    ],
 ];
