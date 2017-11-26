@@ -2,6 +2,6 @@
 return [
 	'myblog_host' => [
 		'wap' => 'https://www.zhangqq.com/',
-		'pc' => 'http://m.zhangqq.com/',
+		'pc' => 'https://m.zhangqq.com/',
 	],
 ];
