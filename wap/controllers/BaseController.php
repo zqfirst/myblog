@@ -46,7 +46,6 @@ class BaseController extends Controller {
 					60 * 60 * 24 );
 
 				$this->redirect( $pc_request );
-				exit;
 			} else {
 				//如果不存在 就添加到不存在的路由
 				array_push( $pc_except_Route, $pathInfo ) &&
