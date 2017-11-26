@@ -11,7 +11,7 @@
         <meta charset="<?= Yii::$app->charset ?>">
         <meta name="format-detection" content="telephone=no">
         <meta name="apple-mobile-web-app-capable" content="yes">
-        <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport">
+        <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
         <title><?=isset($this->title)?$this->title:'张强个人博客'?></title>
         <?php $this->head() ?>
     </head>
