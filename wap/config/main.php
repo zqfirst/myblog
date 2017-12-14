@@ -36,14 +36,15 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-        /*
+
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                'route/<appId:wx\w+>' => 'wx/route',
             ],
         ],
-        */
+
     ],
     'defaultRoute' => 'index/index',
     'params' => $params,
@@ -57,9 +58,9 @@ return [
 	    'words' => [
 		    'class' => 'wap\modules\words\Module'
 	    ],
-//	    'record' => [
-//		    'class' => 'frontend\modules\record\Module'
-//	    ],
+	    'wechat' => [
+		    'class' => 'frontend\modules\wechat\Module'
+	    ],
 	    'blog' => [
 		    'class' => 'wap\modules\blog\Module'
 	    ],

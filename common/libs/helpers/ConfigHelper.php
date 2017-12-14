@@ -31,4 +31,8 @@ class ConfigHelper {
 	public static function getWapUrl(){
 		return rtrim(Yii::$app->params['myblog_host']['wap'], '/'). '/';
 	}
+
+	public static function getWechatConfig(){
+	    return Yii::$app->params['wechat_config'];
+    }
 }
