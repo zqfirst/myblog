@@ -27,8 +27,8 @@ class WxController extends BaseController
 
         $app = new Application($options);
         $app->server->setMessageHandler(function ($message) use ($app, $appConfig) {
-            $fromUser = $app->user->get($message->FromUserName);
-            return "{$fromUser->nickname} 您好！欢迎关注 overtrue!";
+//            $fromUser = $app->user->get($message->FromUserName);
+            return "您好！欢迎关注!";
         });
         $app->server->serve()->send();
     }
