@@ -14,7 +14,7 @@ class WxController extends BaseController
         $options = [
             'debug' => true,
             'app_id' => $appConfig['app_id'],
-            'secret' => $appConfig['secret'],
+            'secret' => $appConfig['app_secret'],
             'token' => $appConfig['token'],
             'aes_key' => $appConfig['aes_key'],
             'log' => [
