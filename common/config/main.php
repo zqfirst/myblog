@@ -1,5 +1,6 @@
 <?php
-$params = [
+
+return [
 	'vendorPath'     => dirname( dirname( __DIR__ ) ) . '/vendor',
 	'language'       => 'zh-CN',
 	'sourceLanguage' => 'zh-CN',
@@ -11,15 +12,12 @@ $params = [
 			'enablePrettyUrl' => true,
 			'showScriptName'  => false,
 		],
+        'idcard' => [
+            'class' => 'Verify\idcard\IdcardVerify'
+        ],
+        'devicedetect' => [
+            'class' => 'alexandernst\devicedetect\DeviceDetect'
+        ]
 	],
 ];
 
-if( class_exists( 'alexandernst\devicedetect\DeviceDetect' ) ) {
-	$params['components'] = array_merge( $params['components'], [
-		'devicedetect' => [
-			'class' => 'alexandernst\devicedetect\DeviceDetect'
-		]
-	] );
-}
-
-return $params;
