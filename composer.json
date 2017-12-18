@@ -47,7 +47,7 @@
     "repositories": [
         {
             "type": "composer",
-            "url": "https://packagist.org"
+            "url": "https://packagist.phpcomposer.com"
         }
     ]
 }
