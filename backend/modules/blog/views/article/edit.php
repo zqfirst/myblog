@@ -137,7 +137,6 @@ $this->registerJsFile( '/public/plugins/utf8-php/ueditor.all.js', [ 'position' =
 
 
         $('#form-submit').on('click', function () {
-//            getAllHtml();
             var content = UE.getEditor('container').getContent();
             var data = $('#edit-article').serialize();
             $.post('', data, function (response) {

@@ -1,0 +1,9 @@
+a.readmore { background: #fd8a61; color: #fff; padding:5px; float:right }
+.dateview span { margin: 0 5px; }
+.dateview span a { color: #093; }
+.dateview { background: #fff; overflow:hidden; clear:both;  margin: 10px 0 0 0; display: inline-block; color: #838383; background: #f6f6f6 ;width:100% }
+.bloglist{width:auto;min-height: 550px;}
+.bloglist h3 { margin: 20px 0 10px 0; color: #333; font-weight:bold; font-size:14px; clear:both; padding-left:10px }
+.bloglist figure { width:100%; overflow:hidden}
+.bloglist figure img { padding: 4px; border: #f4f2f2 1px solid; margin:auto; max-width:460px }
+.bloglist ul { float: left; margin: 10px 0px 0 15px; line-height: 20px; }

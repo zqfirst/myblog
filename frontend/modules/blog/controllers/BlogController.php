@@ -3,11 +3,15 @@
 namespace frontend\modules\blog\controllers;
 
 use common\libs\helpers\ArticleHelper;
+use common\libs\http\RequestHelper;
+use common\models\blog\BlogArticle;
 use frontend\controllers\BaseController;
+use yii\data\Pagination;
 
 class BlogController extends BaseController {
 
 	public $words = '我们长路漫漫，只因学无止境。';
+	private $page_size = 4;
 
 	public function init()
 	{
@@ -19,20 +23,27 @@ class BlogController extends BaseController {
 	 */
 	public function actionIndex()
 	{
-		$articleList = ArticleHelper::getRecentList();
+		$article    = ArticleHelper::getRecentList( RequestHelper::get( 'page', 1 ), $this->page_size );
+		$newArticle = ArticleHelper::getRecentList( 1, 10 );
 
 		return $this->render( 'techList', [
-			'articleList' => $articleList
+			'articleList'    => $article['list'],
+			'newArticleList' => $newArticle['list'],
+			'pages'          => new Pagination( [ 'totalCount' => $article['total'], 'pageSize' => $this->page_size ] )
 		] );
 	}
 
 	/**
 	 * @TODO 文章的详情页面
 	 */
-	public function actionDetail()
+	public function actionDetail( $article_id )
 	{
-		$this->hasNav = false;
+		$articleModel   = BlogArticle::findOne( [ 'id' => $article_id, 'is_delete' => BlogArticle::NOT_DELETE ] );
+		$newArticle = ArticleHelper::getRecentList();
 
-		return $this->render( 'teacDetail' );
+		return $this->render( 'teacDetail', [
+			'articleModle'   => $articleModel,
+			'newArticleList' => $newArticle['list']
+		] );
 	}
 }

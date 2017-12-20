@@ -5,20 +5,9 @@ namespace common\libs\http;
 use Yii;
 use yii\helpers\HtmlPurifier;
 
-/*
- * PHP version 5
- *
- * Description of page RequestHelper.php
- *
- * @author    Lee <lijingang@wangcaigu.com> create in 2015-12-15 17:14:50
- * @copyright 2030 wangcaigu
- * @link      https://www.wangcaigu.com
- */
-
 /**
  * Description of class RequestHelper
  * 
- * @author    Lee <lijingang@wangcaigu.com> create in 2015-12-15 17:14:50
  * @version   1.0
  */
 class RequestHelper

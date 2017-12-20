@@ -8,9 +8,11 @@
 
 namespace frontend\controllers;
 
+use common\libs\helpers\CacheHelper;
+use common\libs\helpers\ConfigHelper;
+use common\libs\http\Http;
 use frontend\modules\blog\controllers\BlogController;
 use frontend\modules\life\controllers\AboutMeController;
-use frontend\modules\life\controllers\LifeController;
 use frontend\modules\words\controllers\WordsController;
 use yii\web\Controller;
 
@@ -29,6 +31,10 @@ class BaseController extends Controller {
 		$this->titleArr = $this->getTitleArr();;
 		$this->title = isset($this->titleArr[ self::className() ]['name']) ?
 			$this->titleArr[ self::className() ]['name'] : '';
+		//如果不是pc端 就跳转到wap端页面
+		if(isset(\Yii::$app->devicedetect) && \Yii::$app->devicedetect->isMobile() ) {
+			$this->identifyRedirect();
+		}
 	}
 
 	public function actions() {
@@ -60,10 +66,10 @@ class BaseController extends Controller {
 				'english' => 'Blog',
 				'url'  => '/blog/blog/index',
 			],
-			LifeController::className() => [
+			WordsController::className() => [
 				'name' => '闲言碎语',
 				'english' => 'Saying',
-				'url'  => '/life/life/say',
+				'url'  => '/words/words/words-list',
 			],
 			AboutMeController::className() => [
 				'name' => '关于我',
@@ -71,5 +77,39 @@ class BaseController extends Controller {
 				'url'  => '/life/about-me/index',
 			]
 		];
+	}
+
+	/**
+	 * 确定路由的导向规则
+	 */
+	private function identifyRedirect(){
+		$pathInfo        = \Yii::$app->request->pathInfo;
+		$wap_route        = CacheHelper::get( CacheHelper::CACHE_WAP_ROUTE_ARR ) ?: [];
+		$wap_except_Route = CacheHelper::get( CacheHelper::CACHE_WAP_EXCEPT_ROUTE_ARR ) ?: [];;
+		$wap_request = ConfigHelper::getWapUrl() . $pathInfo;
+
+		if(in_array( $pathInfo, $wap_route )) {
+			$this->redirect( $wap_request );
+		} elseif(in_array( $pathInfo, $wap_except_Route )) {
+			//没有 就不做处理
+		} else {
+			//①如果不在有效路由 而且 无效路由为空或者不在无效路由
+			//②如果不在无效路由 而且 有效路由为空或者不在有效路由 则重新更新缓存
+			if( Http::check_remote_file_exists( $wap_request ) ) {
+				//添加到存在路由
+				array_push( $wap_route, $pathInfo ) &&
+				CacheHelper::set(
+					CacheHelper::CACHE_WAP_ROUTE_ARR,
+					array_unique( $wap_route ),
+					60 * 60 * 24 ) &&
+				$this->redirect( $wap_request );
+			} else {
+				//如果不存在 就添加到不存在的路由
+				array_push( $wap_except_Route, $pathInfo ) &&
+				CacheHelper::set(CacheHelper::CACHE_WAP_EXCEPT_ROUTE_ARR,
+					array_unique( $wap_except_Route ),
+					60 * 60 * 24);
+			}
+		}
 	}
 }

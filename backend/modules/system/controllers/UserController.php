@@ -11,29 +11,34 @@ class UserController extends BaseController {
 	public function actionIndex()
 	{
 		$data = [
-			'addUserUrl' => '/system/user/add-user?type=add',
+			'userUrl' => '/system/user/edit-user',
 			'userList'   => SysUser::find()->all()
 		];
 
 		return $this->render( 'list', $data );
 	}
 
-	public function actionAddUser()
+	/**
+	 * @return array|string|\yii\web\Response
+	 */
+	public function actionEditUser()
 	{
-		$userId = RequestHelper::getInt( 'uid' );
+		$userId = RequestHelper::getInt( 'id' );
 		$type   = RequestHelper::get( 'type', 'add' );
 		if ( $userId ) {
 			$userInfo = SysUser::findOne( [ 'id' => $userId ] );
 		}
 
 		if ( Yii::$app->request->isPost ) {
-			return ( new SysUser() )->addUser( RequestHelper::post() ) ?
-				$this->redirect( '/system/user/index' ) :
-				$this->redirect( $_SERVER['REQUEST_URI'] );
+			if(SysUser::editUser( RequestHelper::post() ) ){
+				return ['code'=>\ResponseCode::SUCCESS_CODE, 'msg'=>'成功', 'url'=>'/system/user/index'];
+			}else{
+				return ['code'=>\ResponseCode::FAIL_CODE, 'msg'=>'数据处理失败'];
+			}
 		}
 
 		return $this->render( 'edit', [
-			'user' => isset( $userInfo ) ?: null,
+			'user' => isset( $userInfo ) ? $userInfo : null,
 			'type' => $type
 		] );
 	}

@@ -14,4 +14,8 @@ class TestController extends BaseController
 
         $http->get($url1);
     }
+
+    public function actionData(){
+        var_dump(\Yii::$app->idcard->check('41128219910222051'));
+    }
 }

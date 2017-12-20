@@ -12,7 +12,7 @@ $this->title = '用户列表';
 </section>
 <section class="content">
     <p style="margin: 10px">
-        <a href="<?=$addUserUrl?>"><button class="btn btn-primary col-lg-1">新增用户</button></a>
+        <a href="<?=$userUrl?>?type=add"><button class="btn btn-primary col-lg-1">新增用户</button></a>
     </p>
     <table class="table text-center">
         <tr>
@@ -30,7 +30,7 @@ $this->title = '用户列表';
             <td><?=$list->phone?></td>
             <td><?=$list->statusName?></td>
             <td><?=$list->create_time?></td>
-            <td></td>
+            <td><a href="<?=$userUrl?>?type=edit&id=<?=$list->id?>">编辑</a></td>
         </tr>
         <?php endforeach;?>
     </table>
