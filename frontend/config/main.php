@@ -61,5 +61,11 @@ return [
 	    'blog' => [
 		    'class' => 'frontend\modules\blog\Module'
 	    ],
+        'test' => [
+            'class' => 'frontend\modules\test\Module'
+        ],
+        'tool' => [
+            'class' => 'frontend\modules\tool\Module'
+        ]
     ],
 ];

@@ -6,7 +6,7 @@ yii*
 !environments/**index-test.php
 
 **/web/index_test.php
-**.Ds_Stroe
+**.DS_Store
 
 #git版本库冲突文件
 **.orig
