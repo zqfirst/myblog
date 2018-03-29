@@ -20,7 +20,6 @@
     <?php if($this->context->hasTop):?>
     <header>
         <header>
-            <div class="logo"><a href="/">张强个人博客</a></div>
             <div class="menu">
                 <ul>
                     <li><a href="/">首页</a></li>
