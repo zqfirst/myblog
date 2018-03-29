@@ -77,6 +77,20 @@ class Http
         return $this->sendRequest('post', $url, $data, $header, $config, true);
     }
 
+    static public function check_remote_file_exists( $url )
+    {
+        $curl = curl_init( $url );
+        // 不取回数据
+        curl_setopt( $curl, CURLOPT_NOBODY, true );
+        curl_setopt( $curl, CURLOPT_TIMEOUT, 2 );
+        // 发送请求
+        $result = curl_exec( $curl );
+        $found  = $result !== false && curl_getinfo( $curl, CURLINFO_HTTP_CODE ) !== 404 ? true : false;
+        curl_close( $curl );
+
+        return $found;
+    }
+
     /**
      * 发送同步或者异步请求
      *
